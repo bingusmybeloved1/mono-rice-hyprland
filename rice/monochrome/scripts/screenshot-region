@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+mkdir -p "$HOME/Pictures/Screenshots"
+geometry=$(slurp) || exit 0
+[ -n "$geometry" ] || exit 0
+grim -g "$geometry" "$HOME/Pictures/Screenshots/$(date +%F_%H-%M-%S).png"

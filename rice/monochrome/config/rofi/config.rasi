@@ -1,0 +1,107 @@
+configuration {
+  modi: "drun";
+  show-icons: false;
+  drun-display-format: "{name}";
+  disable-history: false;
+  sorting-method: "fzf";
+  case-sensitive: false;
+  matching: "fuzzy";
+  terminal: "alacritty";
+  font: "JetBrainsMono Nerd Font 9";
+}
+
+* {
+  bg: #080808;
+  fg: #e6e6e6;
+  accent: #303030;
+  line: #555555;
+  muted: #888888;
+  background: @bg;
+  foreground: @fg;
+  selected: @accent;
+  border-color: @line;
+}
+
+window {
+  location: center;
+  anchor: center;
+  width: 470px;
+  padding: 0px;
+  border: 1px;
+  border-radius: 0px;
+  border-color: @line;
+  background-color: @bg;
+}
+
+mainbox {
+  children: [ inputbar, listview ];
+  spacing: 5px;
+  padding: 8px;
+  background-color: @bg;
+}
+
+inputbar {
+  children: [ prompt, entry ];
+  spacing: 7px;
+  padding: 5px 6px;
+  border: 0px 0px 1px 0px;
+  border-color: @line;
+  background-color: @bg;
+}
+
+prompt {
+  text-color: @muted;
+  background-color: transparent;
+}
+
+entry {
+  text-color: @fg;
+  placeholder: "Search applications";
+  placeholder-color: @muted;
+  background-color: transparent;
+}
+
+listview {
+  columns: 1;
+  lines: 6;
+  fixed-height: true;
+  scrollbar: false;
+  spacing: 1px;
+  padding: 2px;
+  border: 0px;
+  background-color: @bg;
+}
+
+element {
+  children: [ element-text ];
+  padding: 5px 7px;
+  border: 0px;
+  background-color: transparent;
+  text-color: @fg;
+}
+
+element normal.normal,
+element alternate.normal,
+element normal.active,
+element alternate.active,
+element normal.urgent,
+element alternate.urgent {
+  background-color: transparent;
+  text-color: @fg;
+}
+
+element selected.normal,
+element selected.active,
+element selected.urgent {
+  padding: 5px 7px;
+  border: 0px 0px 0px 2px;
+  border-color: #d0d0d0;
+  background-color: @accent;
+  text-color: #ffffff;
+}
+
+element-text {
+  vertical-align: 0.5;
+  background-color: transparent;
+  text-color: inherit;
+}
